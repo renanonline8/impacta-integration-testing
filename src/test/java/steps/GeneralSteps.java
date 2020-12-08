@@ -1,6 +1,7 @@
 package steps;
 
 import cucumber.api.java.en.Then;
+import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Então;
 import groovy.json.internal.LazyMap;
 import org.junit.Assert;
@@ -11,11 +12,13 @@ import java.util.List;
 public class GeneralSteps {
 
     @Then("^user should see (.*) with value \"([^\"]*)\"$")
+    @E("^usuário pode ver (.*) com o valor \"([^\"]*)\"$")
     public void userShouldSeeLoginWithValue(String field, String value) throws Throwable {
         Assert.assertEquals(value, RESTSupport.key(field));
     }
 
     @Then("^user should see \"([^\"]*)\" message$")
+    @Então("^usuário deveria ver a mensagem de \"([^\"]*)\"$")
     public void userShouldSeeMessage(String type) throws Throwable {
         LazyMap messageJson = new LazyMap();
         messageJson.put("save with success", 201);
@@ -23,6 +26,8 @@ public class GeneralSteps {
         messageJson.put("no content", 204);
         messageJson.put("not found", 404);
         messageJson.put("unauthorized", 401);
+        messageJson.put("salvo com sucesso", 201);
+        messageJson.put("sucesso", 200);
 
         Assert.assertEquals(messageJson.get(type),RESTSupport.getResponseCode());
     }
