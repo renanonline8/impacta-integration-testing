@@ -1,2 +1,5 @@
 # impacta-integration-testing
-Integration testing with java for Impacta studients
+
+## Integrantes
+- Renan Santos Gomes
+- Isaias de Almeida

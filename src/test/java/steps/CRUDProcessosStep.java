@@ -56,4 +56,20 @@ public class CRUDProcessosStep {
                 Processo.getFields()
         );
     }
+
+    @E("^usuário clica no botão apagar$")
+    public void usuarioClicaNoBotaoApagar() {
+        RESTSupport.executeDelete(
+                Processo.getEndPoint() +
+                        Processo.getUltimoProcesso()
+        );
+    }
+
+    @Então("^o usuário deveria ver a mensagem \"([^\"]*)\"$")
+    public void oUsuarioDeveriaVerAMensagem(String message) throws Throwable {
+        RESTSupport.executeGet(
+          Processo.getEndPoint() +
+                  Processo.getUltimoProcesso()
+        );
+    }
 }

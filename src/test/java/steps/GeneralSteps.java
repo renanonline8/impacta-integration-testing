@@ -28,6 +28,7 @@ public class GeneralSteps {
         messageJson.put("unauthorized", 401);
         messageJson.put("salvo com sucesso", 201);
         messageJson.put("sucesso", 200);
+        messageJson.put("Sem conteúdo", 204);
 
         Assert.assertEquals(messageJson.get(type),RESTSupport.getResponseCode());
     }
